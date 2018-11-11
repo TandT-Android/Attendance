@@ -30,9 +30,7 @@ public class ProgrammingAdapter extends RecyclerView.Adapter<ProgrammingAdapter.
         String subjectData = data1[i];
         String attendanceData=data2[i];
         programmingViewHolder.t1.setText(subjectData);
-        programmingViewHolder.t2.setText(attendanceData);
-
-
+        programmingViewHolder.t2.setText(attendanceData+"%");
     }
 
     @Override
