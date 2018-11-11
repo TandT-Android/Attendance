@@ -13,7 +13,7 @@ public class ProgrammingAdapter extends RecyclerView.Adapter<ProgrammingAdapter.
     ProgrammingAdapter(String[] data1, String[] data2)
         {
             this.data1 = data1;
-            this.data2=data2;
+            this.data2 = data2;
         }
     @NonNull
     @Override
@@ -29,8 +29,8 @@ public class ProgrammingAdapter extends RecyclerView.Adapter<ProgrammingAdapter.
     public void onBindViewHolder(@NonNull ProgrammingViewHolder programmingViewHolder, int i) {
         String subjectData = data1[i];
         String attendanceData=data2[i];
-        programmingViewHolder.t1.setText(subjectData);
-        programmingViewHolder.t2.setText(attendanceData+"%");
+        programmingViewHolder.t1.setText("  "+subjectData);
+        programmingViewHolder.t2.setText(attendanceData+" %");
     }
 
     @Override
