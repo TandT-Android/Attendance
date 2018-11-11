@@ -141,6 +141,7 @@ public class SignInActivity extends AppCompatActivity {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             assert user != null;
                             user.updateProfile(profileUpdates);
+                            signOut();
                             Intent intent = new Intent(SignInActivity.this,AttendanceActivity.class);
                             startActivity(intent);
                             finish();
