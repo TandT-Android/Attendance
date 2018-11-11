@@ -74,6 +74,8 @@ public class AttendanceActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(AttendanceActivity.this, "Loading attendance of semester "+ String.valueOf(5-i), Toast.LENGTH_SHORT).show();
+                findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                findViewById(R.id.my_recycler_view).setVisibility(View.INVISIBLE);
                 semester = String.valueOf(5-i);
                 loadData(rootRef.child("Users").child(userRollNumber).child(semester));
             }
@@ -98,6 +100,9 @@ public class AttendanceActivity extends AppCompatActivity {
         RecyclerView programmingList = findViewById(R.id.my_recycler_view);
         programmingList.setLayoutManager(new LinearLayoutManager(this));
         programmingList.setAdapter(new ProgrammingAdapter(subjectData,attendanceData));
+
+        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.my_recycler_view).setVisibility(View.VISIBLE);
     }
 
     void loadData(final DatabaseReference semesterRef){

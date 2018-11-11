@@ -31,6 +31,17 @@ public class SignInActivity extends AppCompatActivity {
     private int RC_SIGN_IN = 1001;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseAuth firebaseAuth1 = FirebaseAuth.getInstance();
+        if (firebaseAuth1.getCurrentUser() != null){
+            Intent intent = new Intent(SignInActivity.this,AttendanceActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
