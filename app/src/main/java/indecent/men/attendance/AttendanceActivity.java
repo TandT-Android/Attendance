@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,8 +111,9 @@ public class AttendanceActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,semesters);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,semesters);
+        SpinnerAdapter aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,semesters);
+        //aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spinner.setAdapter(aa);
 
