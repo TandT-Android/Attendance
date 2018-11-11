@@ -149,51 +149,53 @@ public class AttendanceActivity extends AppCompatActivity {
                     }
                 } else {
                     Log.i("Error","No entry found");
+                    int bound = 49;
+                    int startingLimit = 50;
                     switch (semester) {
                         case "1" :
-                            attendanceMap.put("CHEM",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("EVS",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("PC",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("PCOM",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("BETC",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("MATH 1",String.valueOf(new Random().nextInt(66) + 30));
+                            attendanceMap.put("CHEM",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("EVS",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("PC",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("PCOM",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("BETC",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("MATH 1",String.valueOf(new Random().nextInt(bound) + startingLimit));
 
                             semesterRef.setValue(attendanceMap);
                             break;
                         case "2" :
-                            attendanceMap.put("MATH 2",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("MECH",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("BEE",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("OOPS",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("PHY",String.valueOf(new Random().nextInt(66) + 30));
+                            attendanceMap.put("MATH 2",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("MECH",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("BEE",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("OOPS",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("PHY",String.valueOf(new Random().nextInt(bound) + startingLimit));
 
                             semesterRef.setValue(attendanceMap);
                             break;
                         case "3" :
-                            attendanceMap.put("DSA",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("DEC",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("WT",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("DMS",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("MATH 3",String.valueOf(new Random().nextInt(66) + 30));
+                            attendanceMap.put("DSA",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("DEC",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("WT",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("DMS",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("MATH 3",String.valueOf(new Random().nextInt(bound) + startingLimit));
 
                             semesterRef.setValue(attendanceMap);
                             break;
                         case "4" :
-                            attendanceMap.put("PDC",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("COA",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("DBMS",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("DAA",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("MATH 4",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("ECO",String.valueOf(new Random().nextInt(66) + 30));
+                            attendanceMap.put("PDC",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("COA",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("DBMS",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("DAA",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("MATH 4",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("ECO",String.valueOf(new Random().nextInt(bound) + startingLimit));
 
                             semesterRef.setValue(attendanceMap);
                             break;
                         case "5" :
-                            attendanceMap.put("OS",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("CN",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("FLA",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("SE",String.valueOf(new Random().nextInt(66) + 30));
-                            attendanceMap.put("HPCA",String.valueOf(new Random().nextInt(66) + 30));
+                            attendanceMap.put("OS",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("CN",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("FLA",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("SE",String.valueOf(new Random().nextInt(bound) + startingLimit));
+                            attendanceMap.put("HPCA",String.valueOf(new Random().nextInt(bound) + startingLimit));
 
                             semesterRef.setValue(attendanceMap);
                             break;
