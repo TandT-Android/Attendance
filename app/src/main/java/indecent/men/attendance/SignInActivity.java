@@ -1,8 +1,6 @@
 package indecent.men.attendance;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -132,6 +130,9 @@ public class SignInActivity extends AppCompatActivity {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             assert user != null;
                             user.updateProfile(profileUpdates);
+                            Intent intent = new Intent(SignInActivity.this,AttendanceActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
