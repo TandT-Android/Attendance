@@ -17,6 +17,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AttendanceActivity extends AppCompatActivity {
     FirebaseDatabase db;
@@ -67,6 +70,7 @@ public class AttendanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
+        CircleImageView circleImageView=findViewById(R.id.circleImageView);
 
         semester = "5";
         String[] semesters = {"Semester 5","Semester 4","Semester 3","Semester 2","Semester 1"};
@@ -93,6 +97,7 @@ public class AttendanceActivity extends AppCompatActivity {
         userRollNumber = userEmail.substring(0,userEmail.lastIndexOf('@'));
 
         nameTextView.setText(String.format("Name : %s", user.getDisplayName()));
+        Glide.with(this).load(user.getPhotoUrl()).into(circleImageView);
         rollNumberTextView.setText(String.format("Roll Number : %s", userRollNumber));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
