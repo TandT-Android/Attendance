@@ -1,7 +1,14 @@
 package indecent.men.attendance;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,6 +49,7 @@ public class AttendanceActivity extends AppCompatActivity {
     Spinner spinner;
     String semester;
     String userRollNumber;
+    String chId="0009";
 
     Map<String,String> attendanceMap;
 
@@ -58,12 +66,37 @@ public class AttendanceActivity extends AppCompatActivity {
 
         if(item.getItemId()==R.id.logout)
         {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                notificationGenerate(1);
+            }
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(AttendanceActivity.this,SignInActivity.class));
             finish();
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void notificationGenerate(int id)
+    {String nTitle="";
+        switch (id)
+        {
+            case 0:
+                nTitle="User Signed IN";
+                break;
+            case 1:
+                nTitle="User Logged Out";
+        }
+
+        Notification.Builder notificationBuilder=new Notification.Builder(this).setContentTitle(nTitle)
+                .setAutoCancel(true).setChannelId(chId).setSmallIcon(R.drawable.kiit);
+        NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel notificationChannel=new NotificationChannel(chId,"NOTIFICATION",NotificationManager.IMPORTANCE_HIGH);
+        if (notificationManager != null) {
+            notificationManager.createNotificationChannel(notificationChannel);
+            notificationManager.notify(0,notificationBuilder.build());
+        }
+
     }
 
     @Override
@@ -92,7 +125,9 @@ public class AttendanceActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationGenerate(0);
+        }
         String userEmail = user.getEmail();
         userRollNumber = userEmail.substring(0,userEmail.lastIndexOf('@'));
 
@@ -116,10 +151,7 @@ public class AttendanceActivity extends AppCompatActivity {
             }
         });
 
-//        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,semesters);
         SpinnerAdapter aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,semesters);
-        //aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
         spinner.setAdapter(aa);
 
     }
