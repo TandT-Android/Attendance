@@ -87,14 +87,16 @@ public class SignInActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> task) {
         try {
             GoogleSignInAccount account = task.getResult(ApiException.class);
-            if (checkIfKiitian(account)){
-                //Toast.makeText(this, "Sign In successful", Toast.LENGTH_SHORT).show();
-                firebaseAuthWithGoogle(account);
-            } else{
-                Toast.makeText(this, "Please sign in using KIIT mail id", Toast.LENGTH_LONG).show();
-                signOut();
-                revokeAccess();
-                signIn();
+            if (account != null) {
+                if (checkIfKiitian(account)){
+                    //Toast.makeText(this, "Sign In successful", Toast.LENGTH_SHORT).show();
+                    firebaseAuthWithGoogle(account);
+                } else{
+                    Toast.makeText(this, "Please sign in using KIIT mail id", Toast.LENGTH_LONG).show();
+                    signOut();
+                    revokeAccess();
+                    signIn();
+                }
             }
 
         } catch (ApiException e) {

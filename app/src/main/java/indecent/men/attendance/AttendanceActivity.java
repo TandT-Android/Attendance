@@ -43,9 +43,9 @@ public class AttendanceActivity extends AppCompatActivity {
     FirebaseDatabase db;
     FirebaseAuth firebaseAuth;
     DatabaseReference rootRef;
-    private FirebaseUser user;
-    private TextView nameTextView;
-    private TextView rollNumberTextView;
+    FirebaseUser user;
+    TextView nameTextView;
+    TextView rollNumberTextView;
     Spinner spinner;
     String semester;
     String userRollNumber;
@@ -240,7 +240,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.i("Database ","Error");
             }
         });
     }
